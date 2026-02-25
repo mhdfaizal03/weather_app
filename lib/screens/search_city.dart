@@ -41,9 +41,19 @@ class _SearchCityState extends State<SearchCity> {
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: getCurrentLocation,
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: isLoaded ? buildWeatherInfo() : buildLoadingScreen(),
+        child: Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(colors: [
+            Colors.blue.shade200,
+            Colors.blue.shade400,
+            Colors.blue.shade600,
+          ])),
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: isLoaded ? buildWeatherInfo() : buildLoadingScreen(),
+          ),
         ),
       ),
     );
